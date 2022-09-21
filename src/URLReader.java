@@ -6,6 +6,7 @@ Raw text can be parsed in a number of ways.
 import org.apache.commons.lang3.StringUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,17 +23,24 @@ public class URLReader {
         }
 
 
-
         // System.out.println(doc.getAllElements());
 
-        System.out.println(doc.select("h1, h1 ~ p, h1 ~ ul, h3, h3 ~ p, h3 ~ul"));
+        var contentOfInterest = doc.select("h1, h1 ~ p, h1 ~ ul, h3, h3 ~ p, h3 ~ul");
+        System.out.println(contentOfInterest);
 
+        // TODO: make li have \n as well
 
+//        var formattedContent = new ArrayList<String>();
+//        // choose how to write results for utility
+//        for (var element : contentOfInterest) {
+//            var text = element.text();
+//            if (text.isBlank() || text.isEmpty())
+//                text = "\n";
+//            formattedContent.add(text);
+//        }
 
-
-
-
-
+//        for(var content : formattedContent)
+//            System.out.println(content);
 
 
 //        var content = doc.text();
