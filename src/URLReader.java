@@ -13,22 +13,39 @@ import java.util.HashMap;
 
 
 public class URLReader {
-    public static void main(String[] args) {
 
-        Document doc = null;
+    Document doc;
+    String contentStr;
+
+    /*
+    Constructor should do all the work.
+     */
+    public URLReader(String myUrl) {
         try {
-            doc = Jsoup.connect("https://gilead.yello.co/jobs/SFVW6FkP2XDe_-o0rfhM2Q?job_board_id=v42vD4vKxb3AkKvV93YsrQ").get();
+            doc = Jsoup.connect(myUrl).get(); // builds DOM
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-
-        // System.out.println(doc.getAllElements());
-
         var contentOfInterest = doc.select("h1, h1 ~ p, h1 ~ ul, h3, h3 ~ p, h3 ~ul");
-        System.out.println(contentOfInterest);
+        StringBuilder sb = new StringBuilder();
+        for (var element : contentOfInterest)
+            sb.append(element);
 
-        // TODO: make li have \n as well
+
+        contentStr = sb.toString();
+
+
+    }
+
+    public String getContentStr() {
+
+
+        return contentStr;
+    }
+
+
+    // TODO: make li have \n as well
 
 //        var formattedContent = new ArrayList<String>();
 //        // choose how to write results for utility
@@ -73,5 +90,4 @@ public class URLReader {
 //
 //        }
 
-    }
 }
