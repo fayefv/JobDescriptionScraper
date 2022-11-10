@@ -14,8 +14,8 @@ import java.util.HashMap;
 
 public class URLReader {
 
-    Document doc;
-    String contentStr;
+    private Document doc;
+    private String contentStr;
 
     /*
     Constructor should do all the work.
@@ -27,10 +27,17 @@ public class URLReader {
             e.printStackTrace();
         }
 
-        var contentOfInterest = doc.select("h1, h1 ~ p, h1 ~ ul, h3, h3 ~ p, h3 ~ul");
+        /*
+        collects elements of interest: by default we collect headers h1 and h3,
+        to capture job title we happen to know it is a h3 ~ p,
+        to capture key requirements we collect li
+         */
+        var contentOfInterest = doc.select("h1, h3, h3 ~ p, li");
         StringBuilder sb = new StringBuilder();
-        for (var element : contentOfInterest)
-            sb.append(element);
+        for (var element : contentOfInterest) {
+            sb.append(element.text());
+            sb.append("\n");
+        }
 
 
         contentStr = sb.toString();
