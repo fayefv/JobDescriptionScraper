@@ -1,7 +1,11 @@
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
 /*
 Represents a specific job posting
  */
 public class JobListing {
+
     private String jobURL;
     private String selectedContent;
     private String flattenedContent;
@@ -19,9 +23,13 @@ public class JobListing {
         this.flattenedContent = flattenedContent;
 
         // set default values to empty str
-        this.companyName="";
-        this.jobTitle="";
-        this.jobID="";
+        this.companyName = "";
+        this.jobTitle = "";
+        this.jobID = "";
+    }
+
+    public String getSelectedContent() {
+        return selectedContent;
     }
 
     public void setCompanyName(String companyName) {

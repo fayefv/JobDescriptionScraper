@@ -1,3 +1,6 @@
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /*
 
 Client class
@@ -6,15 +9,21 @@ Client class
  */
 public class Main {
 
-    public static final String test_file_name = "test_file_3.txt";
+
     public static final String test_url = "https://gilead.yello.co/jobs/q8iiiUhgI6m4NHpSAkK-OA?job_board_id=v42vD4vKxb3AkKvV93YsrQ";
 
     public static void main(String[] args) {
 
-        var cw = new ContentWriter();
-        var urlReader = new URLReader(test_url);
-//        System.out.println("TIGHTER\n\n" + urlReader.getContentStr());
-        cw.writeMyContent(test_file_name, urlReader.getContentStr());
+        var test_file_name = new SimpleDateFormat("HH:mm:s-MMddyy'.txt'").format(new Date());
+        System.out.println(test_file_name);
+
+//        var cw = new ContentWriter();
+//        var urlReader = new URLReader(test_url);
+//
+//        // placeholder filename generator
+//
+//
+//        cw.writeMyContent(test_file_name, urlReader.buildJobListing().getSelectedContent());
 
 
     }
