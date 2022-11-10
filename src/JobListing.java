@@ -32,6 +32,10 @@ public class JobListing {
         return selectedContent;
     }
 
+    public String getJobURL() {
+        return jobURL;
+    }
+
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
     }
