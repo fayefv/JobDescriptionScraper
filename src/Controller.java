@@ -2,6 +2,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -37,11 +38,11 @@ public class Controller {
         for (var j : newJobs) {
 
             // placeholder filename generator
-            var test_file_name = new SimpleDateFormat("HH-mm-sS-MMddyyyy'.txt'").format(new Date());
+            var test_file_name = new SimpleDateFormat("HH-mm-sS-MMddyyyy").format(new Date());
             var urlReader = new URLReader(j);
             var jobPost = urlReader.buildJobListing();
-            cw.writeMyContent(test_file_name, jobPost.getJobURL(), jobPost.getSelectedContent());
-            cw.writeMyContent("DOM_"+test_file_name, jobPost.getOuterHtml());
+            cw.writeMyContent(test_file_name+".txt", jobPost.getJobURL(), jobPost.getSelectedContent());
+            cw.writeMyContent(test_file_name+"_DOM.html", jobPost.getOuterHtml());
 
         }
 
@@ -53,7 +54,8 @@ public class Controller {
 
         File input = new File(filename);
         Document doc = Jsoup.parse(input, "UTF-8", baseUri);
-        System.out.println(doc.wholeText());
+        //System.out.println(doc.wholeText());
+
 
     }
 }
