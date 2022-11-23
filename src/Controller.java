@@ -50,12 +50,12 @@ public class Controller {
 
     }
 
-    public void testLoadfromFile(String filename, String baseUri) throws IOException {
-
-        File input = new File(filename);
-        Document doc = Jsoup.parse(input, "UTF-8", baseUri);
-        //System.out.println(doc.wholeText());
-
-
-    }
+//    public void testLoadfromFile(String filename, String baseUri) throws IOException {
+//
+//        File input = new File(filename);
+//        Document doc = Jsoup.parse(input, "UTF-8", baseUri);
+//        System.out.println(doc.wholeText());
+//
+//
+//    }
 }
