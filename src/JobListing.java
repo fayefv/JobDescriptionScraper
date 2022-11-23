@@ -1,5 +1,4 @@
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
+
 
 /*
 Represents a specific job posting
@@ -7,18 +6,21 @@ Represents a specific job posting
 public class JobListing {
 
     private String jobURL;
+    private String outerHtml;
     private String selectedContent;
     private String flattenedContent;
     private String companyName;
     private String jobTitle;
     private String jobID;
 
+
     /*
-    Minimum constructor
-     */
-    public JobListing(String jobURL, String selectedContent, String flattenedContent) {
+        Minimum constructor
+         */
+    public JobListing(String jobURL, String outerHtml, String selectedContent, String flattenedContent) {
 
         this.jobURL = jobURL;
+        this.outerHtml = outerHtml;
         this.selectedContent = selectedContent;
         this.flattenedContent = flattenedContent;
 
@@ -27,6 +29,8 @@ public class JobListing {
         this.jobTitle = "";
         this.jobID = "";
     }
+
+    public String getOuterHtml() { return outerHtml;}
 
     public String getSelectedContent() {
         return selectedContent;

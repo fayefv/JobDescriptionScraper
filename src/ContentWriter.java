@@ -25,5 +25,16 @@ public class ContentWriter {
 
     }
 
+    public void writeMyContent(String output_file_name, String outerHtml) {
+        try {
+            var fw = new FileWriter(new File(output_file_folder, output_file_name));
+            fw.write(outerHtml);
+            fw.close();
+        } catch (Exception e) {
+            e.getStackTrace();
+        }
+
+    }
+
 
 }

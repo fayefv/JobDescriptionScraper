@@ -1,4 +1,8 @@
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+
 import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -37,9 +41,19 @@ public class Controller {
             var urlReader = new URLReader(j);
             var jobPost = urlReader.buildJobListing();
             cw.writeMyContent(test_file_name, jobPost.getJobURL(), jobPost.getSelectedContent());
+            cw.writeMyContent("DOM_"+test_file_name, jobPost.getOuterHtml());
 
         }
 
+
+
     }
 
+    public void testLoadfromFile(String filename, String baseUri) throws IOException {
+
+        File input = new File(filename);
+        Document doc = Jsoup.parse(input, "UTF-8", baseUri);
+        System.out.println(doc.wholeText());
+
+    }
 }

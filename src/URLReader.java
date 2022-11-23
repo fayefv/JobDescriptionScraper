@@ -31,7 +31,7 @@ public class URLReader {
 
         var jobUrl = doc.location();
 
-        return new JobListing(jobUrl, getSelectContent(), doc.text());
+        return new JobListing(jobUrl, doc.outerHtml(), getSelectContent(), doc.text());
 
     }
 
