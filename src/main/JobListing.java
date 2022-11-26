@@ -3,7 +3,9 @@ package main;
 import org.apache.commons.lang3.builder.ToStringExclude;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
@@ -38,6 +40,37 @@ public class JobListing {
         this.jobID = "";
     }
 
+    public void makeWordFrequencyTable(String content){
+
+        var str_arr = content.split("\\b");
+        Map<String, MutableInteger> counterMap = new HashMap<>();
+        counterWithMutableInteger(str_arr, counterMap);
+
+        // Print out k,v using Iterator
+        Iterator<String> itr = counterMap.keySet().iterator();
+        while (itr.hasNext()){
+            var k = itr.next();
+            System.out.println(k + ": " + counterMap.get(k).getCount());
+        }
+
+
+    }
+    private void counterWithMutableInteger(String[] contentList, Map<String, MutableInteger> counterMap){
+        for(String word: contentList){
+            counterMap.compute(word, (k,v) -> v == null ? new MutableInteger() : v).increment();
+        }
+    }
+
+    private static class MutableInteger{
+
+        int count = 0;
+
+        public int getCount(){ return count; }
+
+        public void increment() { this.count++; }
+
+
+    }
 
     public String getOuterHtml() { return outerHtml;}
 

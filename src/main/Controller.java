@@ -38,21 +38,14 @@ public class Controller {
             var test_file_name = new SimpleDateFormat("HH-mm-sS-MMddyyyy").format(new Date());
             var urlReader = new URLReader(j);
             var jobPost = urlReader.buildJobListing();
-            cw.writeMyContent(test_file_name+".txt", jobPost.getJobURL(), jobPost.getSelectedContent());
-            cw.writeMyContent(test_file_name+"_DOM.html", jobPost.getOuterHtml());
+            // cw.writeMyContent(test_file_name+".txt", jobPost.getJobURL(), jobPost.getSelectedContent());
+            // cw.writeMyContent(test_file_name+"_DOM.html", jobPost.getOuterHtml());
+            // jobPost.makeWordFrequencyTable(jobPost.getFlattenedContent());
 
         }
 
 
-
     }
 
-//    public void testLoadfromFile(String filename, String baseUri) throws IOException {
-//
-//        File input = new File(filename);
-//        Document doc = Jsoup.parse(input, "UTF-8", baseUri);
-//        System.out.println(doc.wholeText());
-//
-//
-//    }
+
 }
