@@ -1,4 +1,4 @@
-/*
+package main;/*
 Takes job descriptions in the form of URLs and possibly files and stores raw text.
 Raw text can be parsed in a number of ways.
 */

@@ -1,4 +1,4 @@
-/*
+package main;/*
 Writes job descriptions from the web to file.  Prevents loss of data from link rot, and forms the basis for job
 description word analysis.
 

@@ -1,4 +1,12 @@
+package main;
 
+import org.apache.commons.lang3.builder.ToStringExclude;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 /*
 Represents a specific job posting
@@ -30,11 +38,14 @@ public class JobListing {
         this.jobID = "";
     }
 
+
     public String getOuterHtml() { return outerHtml;}
 
     public String getSelectedContent() {
         return selectedContent;
     }
+
+    public String getFlattenedContent() { return flattenedContent; }
 
     public String getJobURL() {
         return jobURL;
@@ -52,3 +63,4 @@ public class JobListing {
         this.jobID = jobID;
     }
 }
+
